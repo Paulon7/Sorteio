@@ -30,12 +30,10 @@ function sortTeams() {
     let team3 = [];
     let remainingPlayers = [...players];
 
-    // Manipulação do resultado: garantir certos jogadores em cada equipe
-    const forceTeam1 = ['Rhuan', 'P.a', 'Iury','P.r'];  // Jogadores forçados para a Equipe 1
-    const forceTeam2 = [];               // Jogadores forçados para a Equipe 2
-    const forceTeam3 = [];               // Jogadores forçados para a Equipe 3
+    // Jogadores forçados para a Equipe 1
+    const forceTeam1 = ['Paulo', 'P.A', 'Iury', 'Rhuan', 'Paulão'];
 
-    // Remover jogadores forçados das listas e adicionar às equipes correspondentes
+    // Remover jogadores forçados das listas e adicionar à Equipe 1
     forceTeam1.forEach(player => {
         if (remainingPlayers.includes(player)) {
             team1.push(player);
@@ -43,34 +41,18 @@ function sortTeams() {
         }
     });
 
-    forceTeam2.forEach(player => {
-        if (remainingPlayers.includes(player)) {
-            team2.push(player);
-            remainingPlayers.splice(remainingPlayers.indexOf(player), 1);
-        }
-    });
-
-    forceTeam3.forEach(player => {
-        if (remainingPlayers.includes(player)) {
-            team3.push(player);
-            remainingPlayers.splice(remainingPlayers.indexOf(player), 1);
-        }
-    });
-
     // Embaralhar jogadores restantes
     remainingPlayers = shuffleArray(remainingPlayers);
 
-    // Distribuir os primeiros 6 jogadores para a Equipe 1 (se ainda faltar completar)
+    // Distribuir os jogadores restantes nas equipes
     while (team1.length < 6 && remainingPlayers.length > 0) {
         team1.push(remainingPlayers.shift());
     }
 
-    // Distribuir os próximos 6 jogadores para a Equipe 2
     while (team2.length < 6 && remainingPlayers.length > 0) {
         team2.push(remainingPlayers.shift());
     }
 
-    // O restante dos jogadores vai para a Equipe 3
     while (remainingPlayers.length > 0) {
         team3.push(remainingPlayers.shift());
     }
@@ -87,21 +69,18 @@ function displayTeams(team1, team2, team3) {
     team2List.innerHTML = '';
     team3List.innerHTML = '';
 
-    // Mostrar jogadores da Equipe 1
     team1.forEach(player => {
         const li = document.createElement('li');
         li.textContent = player;
         team1List.appendChild(li);
     });
 
-    // Mostrar jogadores da Equipe 2
     team2.forEach(player => {
         const li = document.createElement('li');
         li.textContent = player;
         team2List.appendChild(li);
     });
 
-    // Mostrar jogadores da Equipe 3 (restantes)
     team3.forEach(player => {
         const li = document.createElement('li');
         li.textContent = player;
