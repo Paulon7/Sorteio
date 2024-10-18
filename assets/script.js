@@ -31,13 +31,15 @@ function sortTeams() {
     let remainingPlayers = [...players];
 
     // Jogadores forçados para a Equipe 1
-    const forceTeam1 = ['Paulo', 'P.A', 'Iury', 'Rhuan', 'Paulão'];
+    const forceTeam1 = ['Paulo', 'Rhuan', 'P.A', 'Iury', 'Paulão'];
 
     // Remover jogadores forçados das listas e adicionar à Equipe 1
-    forceTeam1.forEach(player => {
-        if (remainingPlayers.includes(player)) {
-            team1.push(player);
-            remainingPlayers.splice(remainingPlayers.indexOf(player), 1);
+    forceTeam1.forEach(forcedPlayer => {
+        // Encontra o jogador na lista sem diferenciar maiúsculas e minúsculas
+        const playerIndex = remainingPlayers.findIndex(player => player.toLowerCase() === forcedPlayer.toLowerCase());
+        if (playerIndex !== -1) {
+            team1.push(remainingPlayers[playerIndex]);
+            remainingPlayers.splice(playerIndex, 1);
         }
     });
 
