@@ -31,7 +31,7 @@ function sortTeams() {
     let remainingPlayers = [...players];
 
     // Manipulação do resultado: garantir certos jogadores em cada equipe
-    const forceTeam1 = ['Paulão', 'Rhuan', 'P.a', 'Iury'];  // Jogadores forçados para a Equipe 1
+    const forceTeam1 = ['Paulao', 'Rhuan', 'P.a', 'Iury'];  // Jogadores forçados para a Equipe 1
     const forceTeam2 = [];               // Jogadores forçados para a Equipe 2
     const forceTeam3 = [];               // Jogadores forçados para a Equipe 3
 
