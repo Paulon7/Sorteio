@@ -33,7 +33,7 @@ function sortTeams() {
     // Jogadores forçados para a Equipe 1
     const forceTeam1 = ['Paulo', 'Rhuan', 'P.A', 'Iury', 'Paulão', 'Rian'];
 
-    // Remover jogadores forçados das listas e adicionar à Equipe 1
+    // Remover jogadores forçados das listas e adicionar à Equipe 1 até o limite de 5 jogadores
     forceTeam1.forEach(forcedPlayer => {
         const playerIndex = remainingPlayers.findIndex(player => player.toLowerCase() === forcedPlayer.toLowerCase());
         if (playerIndex !== -1 && team1.length < 5) {
@@ -45,7 +45,7 @@ function sortTeams() {
     // Embaralhar jogadores restantes
     remainingPlayers = shuffleArray(remainingPlayers);
 
-    // Distribuir os jogadores restantes nas equipes
+    // Distribuir os jogadores restantes nas equipes, limitando cada uma a 5 jogadores
     while (team1.length < 5 && remainingPlayers.length > 0) {
         team1.push(remainingPlayers.shift());
     }
