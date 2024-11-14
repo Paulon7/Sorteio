@@ -31,7 +31,7 @@ function sortTeams() {
     let remainingPlayers = [...players];
 
     // Jogadores forçados para a Equipe 1
-    const forceTeam1 = ['Paulo', 'Rhuan', 'P.A', 'Iury', 'Paulão', 'Rian'];
+    const forceTeam3 = ['Paulo', 'Rhuan', 'P.A', 'Iury', 'Paulão', 'Rian'];
 
     // Remover jogadores forçados das listas e adicionar à Equipe 1 até o limite de 5 jogadores
     forceTeam1.forEach(forcedPlayer => {
