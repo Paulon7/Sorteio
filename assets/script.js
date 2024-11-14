@@ -20,8 +20,8 @@ function updatePlayerList() {
 }
 
 function sortTeams() {
-    if (players.length < 1) {
-        alert("Adicione pelo menos um jogador para sortear as equipes.");
+    if (players.length < 5) {
+        alert("Adicione pelo menos cinco jogadores para sortear as equipes.");
         return;
     }
 
@@ -31,13 +31,12 @@ function sortTeams() {
     let remainingPlayers = [...players];
 
     // Jogadores forçados para a Equipe 1
-    const forceTeam1 = ['Paulo', 'Rhuan', 'P.A', 'Iury', 'Paulão','Rian'];
+    const forceTeam1 = ['Paulo', 'Rhuan', 'P.A', 'Iury', 'Paulão', 'Rian'];
 
     // Remover jogadores forçados das listas e adicionar à Equipe 1
     forceTeam1.forEach(forcedPlayer => {
-        // Encontra o jogador na lista sem diferenciar maiúsculas e minúsculas
         const playerIndex = remainingPlayers.findIndex(player => player.toLowerCase() === forcedPlayer.toLowerCase());
-        if (playerIndex !== -1) {
+        if (playerIndex !== -1 && team1.length < 5) {
             team1.push(remainingPlayers[playerIndex]);
             remainingPlayers.splice(playerIndex, 1);
         }
@@ -55,7 +54,7 @@ function sortTeams() {
         team2.push(remainingPlayers.shift());
     }
 
-    while (remainingPlayers.length > 0) {
+    while (team3.length < 5 && remainingPlayers.length > 0) {
         team3.push(remainingPlayers.shift());
     }
 
