@@ -47,11 +47,11 @@ function sortTeams() {
     remainingPlayers = shuffleArray(remainingPlayers);
 
     // Distribuir os jogadores restantes nas equipes
-    while (team1.length < 6 && remainingPlayers.length > 0) {
+    while (team1.length < 5 && remainingPlayers.length > 0) {
         team1.push(remainingPlayers.shift());
     }
 
-    while (team2.length < 6 && remainingPlayers.length > 0) {
+    while (team2.length < 5 && remainingPlayers.length > 0) {
         team2.push(remainingPlayers.shift());
     }
 
